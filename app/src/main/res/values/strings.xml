@@ -14,5 +14,5 @@
     <string name="btn_notification_google_play">Show notification (Google Play)</string>
 
     <string name="settings_check_for_updates">Check for updates</string>
-    <string name="settings_check_for_updates_summary">Check for new versions using AppUpdater library.</string>
+    <string name="settings_check_for_updates_summary">Click here to download new version.</string>
 </resources>
