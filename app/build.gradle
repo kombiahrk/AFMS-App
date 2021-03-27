@@ -6,14 +6,45 @@ android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
 
-    defaultConfig {
-        applicationId "com.example.afms"
-        minSdkVersion 16
-        targetSdkVersion 30
-        versionCode 1
-        versionName "1.2"
+    // Read version information from local file and increment as appropriate
+    def versionPropsFile = file('version.properties')
+    if (versionPropsFile.canRead()) {
+        def Properties versionProps = new Properties()
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        versionProps.load(new FileInputStream(versionPropsFile))
+
+        def versionBuild = versionProps['VERSION_BUILD'].toInteger() + 1
+        def vCode = versionProps['VERSION_CODE'].toInteger() + 1
+        def versionMinor = versionProps['VERSION_MINOR'].toInteger()
+        def versionMajor = versionProps['VERSION_MAJOR'].toInteger()
+        if (versionBuild == 10) {
+            versionMinor = versionMinor.toInteger() + 1
+            versionBuild = 1
+            if (versionMinor == 10) {
+                versionMajor = versionMajor.toInteger() + 1
+                versionMinor = 1
+            }
+            else {
+                versionMajor = versionMajor.toInteger()
+            }
+        } else {
+            versionMinor = versionMinor.toInteger()
+        }
+
+        // Update the build number in the local file
+        versionProps['VERSION_CODE'] = vCode.toString()
+        versionProps['VERSION_BUILD'] = versionBuild.toString()
+        versionProps['VERSION_MINOR'] = versionMinor.toString()
+        versionProps['VERSION_MAJOR'] = versionMajor.toString()
+        versionProps.store(versionPropsFile.newWriter(), null)
+
+        defaultConfig {
+            applicationId "com.example.afms"
+            versionCode vCode
+            versionName "${versionMajor}.${versionMinor}." + String.format("%02d", versionBuild)
+            minSdkVersion 16
+            targetSdkVersion 30
+        }
     }
 
     buildTypes {
@@ -41,3 +72,4 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'com.github.TutorialsAndroid:AppXUpdater:v2.0.20'
 }
+
