@@ -17,10 +17,10 @@ android {
         def vCode = versionProps['VERSION_CODE'].toInteger() + 1
         def versionMinor = versionProps['VERSION_MINOR'].toInteger()
         def versionMajor = versionProps['VERSION_MAJOR'].toInteger()
-        if (versionBuild == 10) {
+        if (versionBuild == 100) {
             versionMinor = versionMinor.toInteger() + 1
             versionBuild = 1
-            if (versionMinor == 10) {
+            if (versionMinor == 100) {
                 versionMajor = versionMajor.toInteger() + 1
                 versionMinor = 1
             }
