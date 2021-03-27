@@ -1,7 +1,7 @@
 <AppUpdater>
   <update>
     <latestVersion>1.2.01</latestVersion>
-    <latestVersionCode>19</latestVersionCode>
+    <latestVersionCode>25</latestVersionCode>
     <url>https://github.com/kombiahrk/AFMS-App/raw/master/app-release-unsigned.apk</url>
     <releaseNotes>
 - First evolution
