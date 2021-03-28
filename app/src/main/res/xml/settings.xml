@@ -3,7 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical">
 
-    <PreferenceCategory>
+    <PreferenceCategory
+        android:title="@string/versionName">
         <Preference
             android:key="prefCheckForUpdates"
             android:title="@string/settings_check_for_updates"

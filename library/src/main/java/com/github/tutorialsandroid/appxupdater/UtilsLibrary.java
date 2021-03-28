@@ -17,6 +17,7 @@ import com.github.tutorialsandroid.appxupdater.objects.GitHub;
 import com.github.tutorialsandroid.appxupdater.objects.Update;
 import com.github.tutorialsandroid.appxupdater.objects.Version;
 
+import org.jetbrains.annotations.NotNull;
 import org.jsoup.Jsoup;
 
 import java.io.BufferedReader;
@@ -318,7 +319,7 @@ class UtilsLibrary {
         return successfulChecks % showEvery == 0;
     }
 
-    static Boolean isNetworkAvailable(Context context) {
+    static Boolean isNetworkAvailable(@NotNull Context context) {
         boolean res = false;
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         if (cm != null) {
