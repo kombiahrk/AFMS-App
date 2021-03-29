@@ -1,8 +1,8 @@
 <AppUpdater>
   <update>
-    <latestVersion>1.2.21</latestVersion>
-    <latestVersionCode>55</latestVersionCode>
-    <url>https://github.com/kombiahrk/AFMS-App/raw/master/app-release-unsigned.apk</url>
+    <latestVersion>1.2.28</latestVersion>
+    <latestVersionCode>46</latestVersionCode>
+    <url>https://github.com/kombiahrk/AFMS-App/raw/master/app-debug.apk</url>
     <releaseNotes>
 - Useless Update
 - Bug fixes

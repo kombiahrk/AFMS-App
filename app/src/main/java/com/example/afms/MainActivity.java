@@ -29,58 +29,32 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(binding.toolbar);
 		
         binding.fab.setOnClickListener(view -> startActivity(new Intent(Intent.ACTION_VIEW,
-                Uri.parse("http://veereport.in/"))));
+                Uri.parse("http://veereport.in/opapp/"))));
 
         binding.included.dialogUpdateChangelog.setOnClickListener(view -> new AppUpdater(mContext)
-                //.setUpdateFrom(UpdateFrom.GITHUB)
-                //.setGitHubUserAndRepo("TutorialsAndroid", "AppXUpdater")
                 .setUpdateFrom(UpdateFrom.JSON)
-                .setUpdateJSON("https://raw.githubusercontent.com/TutorialsAndroid/AppXUpdater/master/files/update-changelog.json")
+                .setUpdateXML("https://raw.githubusercontent.com/kombiahrk/AFMS-App/master/update.xml")
                 .setDisplay(Display.DIALOG)
                 .showAppUpdated(true)
                 .start());
 
         binding.included.dialogUpdate.setOnClickListener(view -> new AppUpdater(mContext)
-                //.setUpdateFrom(UpdateFrom.GITHUB)
-                //.setGitHubUserAndRepo("TutorialsAndroid", "AppXUpdater")
                 .setUpdateFrom(UpdateFrom.JSON)
-                .setUpdateXML("https://raw.githubusercontent.com/TutorialsAndroid/AppXUpdater/master/files/update.json")
+                .setUpdateXML("https://raw.githubusercontent.com/kombiahrk/AFMS-App/master/update.xml")
                 .setDisplay(Display.DIALOG)
                 .showAppUpdated(true)
                 .start());
 
         binding.included.snackbarUpdate.setOnClickListener(view -> new AppUpdater(mContext)
-                .setUpdateFrom(UpdateFrom.GITHUB)
-                .setGitHubUserAndRepo("TutorialsAndroid", "AppXUpdater")
                 .setUpdateFrom(UpdateFrom.XML)
-                .setUpdateXML("https://raw.githubusercontent.com/TutorialsAndroid/AppXUpdater/master/files/update.xml")
+                .setUpdateXML("https://raw.githubusercontent.com/kombiahrk/AFMS-App/master/update.xml")
                 .setDisplay(Display.SNACKBAR)
                 .showAppUpdated(true)
                 .start());
 
         binding.included.notificationUpdate.setOnClickListener(view -> new AppUpdater(mContext)
-                //.setUpdateFrom(UpdateFrom.GITHUB)
-                //.setGitHubUserAndRepo("TutorialsAndroid", "AppXUpdater")
                 .setUpdateFrom(UpdateFrom.XML)
-                .setUpdateXML("https://raw.githubusercontent.com/TutorialsAndroid/AppXUpdater/master/files/update.xml")
-                .setDisplay(Display.NOTIFICATION)
-                .showAppUpdated(true)
-                .start());
-
-        binding.included.dialogNoUpdate.setOnClickListener(view -> new AppUpdater(mContext)
-                .setUpdateFrom(UpdateFrom.GOOGLE_PLAY)
-                .setDisplay(Display.DIALOG)
-                .showAppUpdated(true)
-                .start());
-
-        binding.included.snackbarNoUpdate.setOnClickListener(view -> new AppUpdater(mContext)
-                .setUpdateFrom(UpdateFrom.GOOGLE_PLAY)
-                .setDisplay(Display.SNACKBAR)
-                .showAppUpdated(true)
-                .start());
-
-        binding.included.notificationNoUpdate.setOnClickListener(view -> new AppUpdater(mContext)
-                .setUpdateFrom(UpdateFrom.GOOGLE_PLAY)
+                .setUpdateXML("https://raw.githubusercontent.com/kombiahrk/AFMS-App/master/update.xml")
                 .setDisplay(Display.NOTIFICATION)
                 .showAppUpdated(true)
                 .start());

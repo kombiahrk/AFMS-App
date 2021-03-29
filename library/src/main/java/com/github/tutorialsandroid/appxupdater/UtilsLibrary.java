@@ -287,7 +287,6 @@ class UtilsLibrary {
         }
     }
 
-
     static Intent intentToUpdate(Context context, UpdateFrom updateFrom, URL url) {
         Intent intent;
 
