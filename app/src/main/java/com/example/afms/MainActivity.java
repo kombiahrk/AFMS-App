@@ -32,14 +32,14 @@ public class MainActivity extends AppCompatActivity {
                 Uri.parse("http://veereport.in/opapp/"))));
 
         binding.included.dialogUpdateChangelog.setOnClickListener(view -> new AppUpdater(mContext)
-                .setUpdateFrom(UpdateFrom.JSON)
+                .setUpdateFrom(UpdateFrom.XML)
                 .setUpdateXML("https://raw.githubusercontent.com/kombiahrk/AFMS-App/master/update.xml")
                 .setDisplay(Display.DIALOG)
                 .showAppUpdated(true)
                 .start());
 
         binding.included.dialogUpdate.setOnClickListener(view -> new AppUpdater(mContext)
-                .setUpdateFrom(UpdateFrom.JSON)
+                .setUpdateFrom(UpdateFrom.XML)
                 .setUpdateXML("https://raw.githubusercontent.com/kombiahrk/AFMS-App/master/update.xml")
                 .setDisplay(Display.DIALOG)
                 .showAppUpdated(true)
