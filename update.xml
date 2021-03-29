@@ -1,11 +1,12 @@
 <AppUpdater>
   <update>
-    <latestVersion>1.2.30</latestVersion>
-    <latestVersionCode>48</latestVersionCode>
-    <url>https://github.com/kombiahrk/AFMS-App/raw/master/afms-debug.apk</url>
+    <latestVersion>1.2.31</latestVersion>
+    <latestVersionCode>49</latestVersionCode>
+    <url>https://github.com/kombiahrk/AFMS-App/raw/master/afms.apk</url>
     <releaseNotes>
-- Useless Update
-- Bug fixes
+Version - 1.2.31
+- Improvements
+- Squashed some bugs
     </releaseNotes>
   </update>
 </AppUpdater>

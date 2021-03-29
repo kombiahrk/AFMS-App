@@ -31,6 +31,7 @@ public class SettingsActivity extends PreferenceActivity {
                         .setUpdateFrom(UpdateFrom.XML)
                         .setUpdateXML("https://raw.githubusercontent.com/kombiahrk/AFMS-App/master/update.xml")
                         .setDisplay(Display.DIALOG)
+                        .setButtonDoNotShowAgain(null)
                         .showAppUpdated(true)
                         .start();
                 return true;
