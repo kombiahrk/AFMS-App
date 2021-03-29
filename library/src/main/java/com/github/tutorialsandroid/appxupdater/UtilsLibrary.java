@@ -326,9 +326,6 @@ class UtilsLibrary {
             if (networkInfo != null) {
                 res = networkInfo.isConnected();
             }
-            else{
-                res = false;
-            }
         }
 
         return res;

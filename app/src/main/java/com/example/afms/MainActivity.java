@@ -2,6 +2,8 @@ package com.example.afms;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
@@ -26,8 +28,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         this.mContext = this;
+        isNetworkAvailable();
         setSupportActionBar(binding.toolbar);
-		
+
         binding.fab.setOnClickListener(view -> startActivity(new Intent(Intent.ACTION_VIEW,
                 Uri.parse("http://veereport.in/opapp/"))));
 
@@ -76,4 +79,26 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    /**
+     * @return true if network is available and presents no UI message.
+     */
+    public void isNetworkAvailable() {
+        try {
+            ConnectivityManager connectivity = (ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
+            if (connectivity != null) {
+                NetworkInfo[] info = connectivity.getAllNetworkInfo();
+                if (info != null)
+                    for (int i = 0; i < info.length; i++)
+                        if (info[i].getState() == NetworkInfo.State.CONNECTED) {
+                            //present your UI
+                        }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        //exit the app
+        finish();
+    }
+
 }
