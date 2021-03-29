@@ -63,6 +63,8 @@ android {
     applicationVariants.all { variant ->
         variant.resValue "string", "versionName", variant.versionName
     }
+
+    archivesBaseName = "afms"
 }
 
 dependencies {
