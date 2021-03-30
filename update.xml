@@ -1,10 +1,10 @@
 <AppUpdater>
   <update>
-    <latestVersion>1.2.39</latestVersion>
-    <latestVersionCode>57</latestVersionCode>
+    <latestVersion>1.2.40</latestVersion>
+    <latestVersionCode>58</latestVersionCode>
     <url>https://github.com/kombiahrk/AFMS-App/raw/master/afms.apk</url>
     <releaseNotes>
-Version - 1.2.39
+Version - 1.2.40
 - Improvements
 - Squashed some bugs
     </releaseNotes>
