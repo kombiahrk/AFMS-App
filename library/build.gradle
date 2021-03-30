@@ -42,4 +42,5 @@ dependencies {
 
     //JSOUP
     implementation 'org.jsoup:jsoup:1.11.3'
+    implementation project(path: ':app')
 }

@@ -15,7 +15,7 @@ import com.github.tutorialsandroid.appxupdater.AppUpdater;
 import com.github.tutorialsandroid.appxupdater.enums.Display;
 import com.github.tutorialsandroid.appxupdater.enums.UpdateFrom;
 
-public class SettingsActivity extends PreferenceActivity {
+public class  SettingsActivity extends PreferenceActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
