@@ -1,6 +1,5 @@
 package com.github.tutorialsandroid.appxupdater;
 
-import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -301,9 +300,9 @@ class UtilsLibrary{
     }
 
     static void goToUpdate(Context context, UpdateFrom updateFrom, URL url) {
-        Intent intent = intentToUpdate(context, updateFrom, url);
-
-        if (updateFrom.equals(UpdateFrom.GOOGLE_PLAY)) {
+       //Intent intent = intentToUpdate(context, updateFrom, url);
+        goToDownload(context, url.toString());
+       /* if (updateFrom.equals(UpdateFrom.GOOGLE_PLAY)) {
             try {
                 context.startActivity(intent);
             } catch (ActivityNotFoundException e) {
@@ -312,7 +311,7 @@ class UtilsLibrary{
             }
         } else {
             goToDownload(context, url.toString());
-        }
+        }*/
     }
 
     static Boolean isAbleToShow(Integer successfulChecks, Integer showEvery) {
