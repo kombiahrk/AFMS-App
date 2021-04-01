@@ -311,7 +311,7 @@ class UtilsLibrary{
                 context.startActivity(intent);
             }
         } else {
-            context.startActivity(intent);
+            goToDownload(context, url.toString());
         }
     }
 
@@ -330,5 +330,11 @@ class UtilsLibrary{
         }
 
         return res;
+    }
+
+    private static void goToDownload(Context context, String downloadUrl) {
+        Intent intent = new Intent(context.getApplicationContext(), DownloadService.class);
+        intent.putExtra(Constants.APK_DOWNLOAD_URL, downloadUrl);
+        context.startService(intent);
     }
 }
