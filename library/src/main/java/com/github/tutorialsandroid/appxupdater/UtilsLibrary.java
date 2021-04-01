@@ -1,5 +1,6 @@
 package com.github.tutorialsandroid.appxupdater;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -9,7 +10,12 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+
+import com.example.afms.MainActivity;
 import com.github.tutorialsandroid.appxupdater.enums.Duration;
 import com.github.tutorialsandroid.appxupdater.enums.UpdateFrom;
 import com.github.tutorialsandroid.appxupdater.objects.GitHub;
@@ -34,8 +40,9 @@ import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 
-class UtilsLibrary{
+class UtilsLibrary extends MainActivity {
 
+    private static final int MY_PERMISSION_REQUEST_WRITE_EXTERNAL_STORAGE = 1001;
 
     static String getAppName(Context context) {
         ApplicationInfo applicationInfo = context.getApplicationInfo();
@@ -299,9 +306,9 @@ class UtilsLibrary{
         return intent;
     }
 
-    static void goToUpdate(Context context, UpdateFrom updateFrom, URL url) {
+    void goToUpdate() {
        //Intent intent = intentToUpdate(context, updateFrom, url);
-        goToDownload(context, url.toString());
+        /*goToDownload(context, url.toString());
        /* if (updateFrom.equals(UpdateFrom.GOOGLE_PLAY)) {
             try {
                 context.startActivity(intent);
@@ -312,6 +319,7 @@ class UtilsLibrary{
         } else {
             goToDownload(context, url.toString());
         }*/
+        checkWriteExternalStoragePermission();
     }
 
     static Boolean isAbleToShow(Integer successfulChecks, Integer showEvery) {
@@ -329,6 +337,47 @@ class UtilsLibrary{
         }
 
         return res;
+    }
+
+    /** TODO: Must need to check the External Storage Permission Because we are storing the
+     *  ApK in the External Or Internal Storage.
+     */
+    private void checkWriteExternalStoragePermission() {
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+            /** If we have permission than we can Start the Download the task **/
+            downloadTask();
+        } else {
+            /** If we don't have permission than requesting  the permission **/
+            requestWriteExternalStoragePermission();
+        }
+    }
+
+    private void requestWriteExternalStoragePermission() {
+        ActivityCompat.requestPermissions(this,
+                new String[] {Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                MY_PERMISSION_REQUEST_WRITE_EXTERNAL_STORAGE);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode==MY_PERMISSION_REQUEST_WRITE_EXTERNAL_STORAGE && grantResults.length == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            downloadTask();
+        } else {
+            Toast.makeText(this, "Permission Not Granted.", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void downloadTask() {
+        /** This @DownloadApk class is provided by our Library **/
+        /** Pass the  Context when creating object of DownlodApk **
+         */
+
+        DownloadApk downloadApk = new DownloadApk(this);
+
+        /** For Starting download call the method startDownLoadingApk() by passing the URL **/
+        downloadApk.startDownloadingApk("http://veereport.in/apps/afms.apk");
     }
 
     private static void goToDownload(Context context, String downloadUrl) {

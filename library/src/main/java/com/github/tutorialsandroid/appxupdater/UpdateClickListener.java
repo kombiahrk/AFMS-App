@@ -25,6 +25,6 @@ public class UpdateClickListener implements DialogInterface.OnClickListener {
 
     @Override
     public void onClick(final DialogInterface dialog, final int which) {
-        UtilsLibrary.goToUpdate(context, updateFrom, apk);
+        UtilsLibrary.goToUpdate();
     }
 }
