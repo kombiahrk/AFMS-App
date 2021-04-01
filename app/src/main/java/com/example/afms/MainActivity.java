@@ -38,13 +38,6 @@ public class MainActivity extends AppCompatActivity {
                 .showAppUpdated(true)
                 .start());
 
-        binding.included.dialogUpdate.setOnClickListener(view -> new AppUpdater(mContext)
-                .setUpdateFrom(UpdateFrom.XML)
-                .setUpdateXML("https://raw.githubusercontent.com/kombiahrk/AFMS-App/master/update.xml")
-                .setDisplay(Display.DIALOG)
-                .showAppUpdated(true)
-                .start());
-
         binding.included.snackbarUpdate.setOnClickListener(view -> new AppUpdater(mContext)
                 .setUpdateFrom(UpdateFrom.XML)
                 .setUpdateXML("https://raw.githubusercontent.com/kombiahrk/AFMS-App/master/update.xml")
