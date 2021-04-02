@@ -46,7 +46,7 @@ class UtilsDisplay {
         }*/
 
         Snackbar snackbar = Snackbar.make(activity.findViewById(android.R.id.content), content, snackbarTime);
-        snackbar.setAction(context.getResources().getString(R.string.appupdater_btn_update), view -> UtilsLibrary.goToUpdate(context, updateFrom, apk));
+        snackbar.setAction(context.getResources().getString(R.string.appupdater_btn_update),   view -> UtilsLibrary.goToUpdate(context, updateFrom, apk));
         return snackbar;
     }
 
