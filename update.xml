@@ -1,10 +1,10 @@
 <AppUpdater>
   <update>
-    <latestVersion>1.2.58</latestVersion>
-    <latestVersionCode>76</latestVersionCode>
+    <latestVersion>1.2.60</latestVersion>
+    <latestVersionCode>78</latestVersionCode>
     <url>http://veereport.in/apps/afms.apk</url>
     <releaseNotes>
-Version - 1.2.55
+Version - 1.2.60
 - Improvements
 - Squashed some bugs
     </releaseNotes>
